@@ -1,0 +1,690 @@
+fileFormatVersion: 2
+guid: 427bb7c600eaba042be1935c68094e3c
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ankle_r
+    100002: ankle_r.001
+    100004: ankle_r.001_end
+    100006: ankle_r_end
+    100008: Armature
+    100010: BezierCircle
+    100012: Bone.011
+    100014: Bone.012
+    100016: Bone.014
+    100018: Bone.015
+    100020: Bone.015_end
+    100022: Bone.020
+    100024: Bone.026
+    100026: Bone.029
+    100028: Bone.035
+    100030: Bone.036
+    100032: Bone.037
+    100034: Bone.037_end
+    100036: Bone.038
+    100038: Bone.039
+    100040: Bone.039_end
+    100042: ChestControl_Shape
+    100044: Clav Controller
+    100046: elbow_l
+    100048: elbow_l_end
+    100050: elbow_r
+    100052: elbow_r_end
+    100054: ElbowIK Controller
+    100056: fingerIk_l
+    100058: fingerIk_l_end
+    100060: fingers_r
+    100062: fingers_r_end
+    100064: fingersIK_r
+    100066: fingersIK_r_end
+    100068: Foot Controller_L
+    100070: Foot Controller_R
+    100072: foot_l
+    100074: foot_l_end
+    100076: foot_r
+    100078: foot_r_end
+    100080: FootIKController_Shape
+    100082: Hand Controller
+    100084: head
+    100086: Head Controller
+    100088: head_end
+    100090: Hip Controller
+    100092: hip_r
+    100094: Knee Controller
+    100096: knee_l
+    100098: knee_l_end
+    100100: knee_r
+    100102: knee_r_end
+    100104: leg_l
+    100106: leg_r
+    100108: LowerArm Controller
+    100110: lowerArm_l
+    100112: lowerArm_r
+    100114: LowerLeg Controller
+    100116: neck
+    100118: Neck Controller
+    100120: pelvis
+    100122: Rference
+    100124: shoulder_l
+    100126: shoulder_r
+    100128: spin1
+    100130: spin2
+    100132: spin3
+    100134: Spine_01 Controller
+    100136: Spine_02 Controller
+    100138: SwordMaster.001
+    100140: //RootNode
+    100142: thigh_l
+    100144: thigh_r
+    100146: torso
+    100148: UpperArm Controller
+    100150: upperArm_l
+    100152: upperArm_r
+    100154: UpperLeg Controller
+    100156: wrist_l
+    100158: wrist_r
+    100160: wristIK_l
+    100162: wristIK_l_end
+    100164: wristIK_r
+    100166: wristIK_r_end
+    400000: ankle_r
+    400002: ankle_r.001
+    400004: ankle_r.001_end
+    400006: ankle_r_end
+    400008: Armature
+    400010: BezierCircle
+    400012: Bone.011
+    400014: Bone.012
+    400016: Bone.014
+    400018: Bone.015
+    400020: Bone.015_end
+    400022: Bone.020
+    400024: Bone.026
+    400026: Bone.029
+    400028: Bone.035
+    400030: Bone.036
+    400032: Bone.037
+    400034: Bone.037_end
+    400036: Bone.038
+    400038: Bone.039
+    400040: Bone.039_end
+    400042: ChestControl_Shape
+    400044: Clav Controller
+    400046: elbow_l
+    400048: elbow_l_end
+    400050: elbow_r
+    400052: elbow_r_end
+    400054: ElbowIK Controller
+    400056: fingerIk_l
+    400058: fingerIk_l_end
+    400060: fingers_r
+    400062: fingers_r_end
+    400064: fingersIK_r
+    400066: fingersIK_r_end
+    400068: Foot Controller_L
+    400070: Foot Controller_R
+    400072: foot_l
+    400074: foot_l_end
+    400076: foot_r
+    400078: foot_r_end
+    400080: FootIKController_Shape
+    400082: Hand Controller
+    400084: head
+    400086: Head Controller
+    400088: head_end
+    400090: Hip Controller
+    400092: hip_r
+    400094: Knee Controller
+    400096: knee_l
+    400098: knee_l_end
+    400100: knee_r
+    400102: knee_r_end
+    400104: leg_l
+    400106: leg_r
+    400108: LowerArm Controller
+    400110: lowerArm_l
+    400112: lowerArm_r
+    400114: LowerLeg Controller
+    400116: neck
+    400118: Neck Controller
+    400120: pelvis
+    400122: Rference
+    400124: shoulder_l
+    400126: shoulder_r
+    400128: spin1
+    400130: spin2
+    400132: spin3
+    400134: Spine_01 Controller
+    400136: Spine_02 Controller
+    400138: SwordMaster.001
+    400140: //RootNode
+    400142: thigh_l
+    400144: thigh_r
+    400146: torso
+    400148: UpperArm Controller
+    400150: upperArm_l
+    400152: upperArm_r
+    400154: UpperLeg Controller
+    400156: wrist_l
+    400158: wrist_r
+    400160: wristIK_l
+    400162: wristIK_l_end
+    400164: wristIK_r
+    400166: wristIK_r_end
+    2100000: No Name
+    2300000: BezierCircle
+    2300002: ChestControl_Shape
+    2300004: Clav Controller
+    2300006: ElbowIK Controller
+    2300008: Foot Controller_L
+    2300010: Foot Controller_R
+    2300012: FootIKController_Shape
+    2300014: Hand Controller
+    2300016: Head Controller
+    2300018: Hip Controller
+    2300020: Knee Controller
+    2300022: LowerArm Controller
+    2300024: LowerLeg Controller
+    2300026: Neck Controller
+    2300028: Spine_01 Controller
+    2300030: Spine_02 Controller
+    2300032: UpperArm Controller
+    2300034: UpperLeg Controller
+    3300000: BezierCircle
+    3300002: ChestControl_Shape
+    3300004: Clav Controller
+    3300006: ElbowIK Controller
+    3300008: Foot Controller_L
+    3300010: Foot Controller_R
+    3300012: FootIKController_Shape
+    3300014: Hand Controller
+    3300016: Head Controller
+    3300018: Hip Controller
+    3300020: Knee Controller
+    3300022: LowerArm Controller
+    3300024: LowerLeg Controller
+    3300026: Neck Controller
+    3300028: Spine_01 Controller
+    3300030: Spine_02 Controller
+    3300032: UpperArm Controller
+    3300034: UpperLeg Controller
+    4300000: Hip Controller
+    4300002: Spine_01 Controller
+    4300004: Spine_02 Controller
+    4300006: ElbowIK Controller
+    4300008: UpperLeg Controller
+    4300010: LowerLeg Controller
+    4300012: UpperArm Controller
+    4300014: LowerArm Controller
+    4300016: Head Controller
+    4300018: Hand Controller
+    4300020: Knee Controller
+    4300022: Clav Controller
+    4300024: ChestControl_Shape
+    4300026: Foot Controller_R
+    4300028: FootIKController_Shape
+    4300030: Foot Controller_L
+    4300032: Neck Controller
+    4300034: BezierCircle
+    4300036: SwordMaster.001
+    7400000: SwordMaster_Idle
+    7400002: SwordMaster_RunCycle
+    7400004: SwordMaster_MeleeAttack.001
+    7400006: Shooting Attack
+    7400008: Shooting Attack.001
+    7400010: Armature|SwordMaster_DashPose
+    7400012: Armature|SwordMaster_HeavyChargePose
+    7400014: Armature|SwordMaster_Idle
+    7400016: Armature|SwordMaster_MeleeAttack
+    7400018: Armature|SwordMaster_RunCycle
+    7400020: Armature|SwordMaster_RunShoot
+    7400022: Armature|SwordMaster_Shooting
+    7400024: Armature|SwordMaster_ShootingPose
+    9500000: //RootNode
+    13700000: SwordMaster.001
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SwordMaster_Idle
+      takeName: SwordMaster_Idle
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SwordMaster_RunCycle
+      takeName: SwordMaster_RunCycle
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SwordMaster_MeleeAttack.001
+      takeName: SwordMaster_MeleeAttack.001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Shooting Attack
+      takeName: Shooting Attack
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Shooting Attack.001
+      takeName: Shooting Attack.001
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|SwordMaster_DashPose
+      takeName: Armature|SwordMaster_DashPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|SwordMaster_HeavyChargePose
+      takeName: Armature|SwordMaster_HeavyChargePose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|SwordMaster_Idle
+      takeName: Armature|SwordMaster_Idle
+      firstFrame: 0
+      lastFrame: 58
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|SwordMaster_MeleeAttack
+      takeName: Armature|SwordMaster_MeleeAttack
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|SwordMaster_RunCycle
+      takeName: Armature|SwordMaster_RunCycle
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|SwordMaster_RunShoot
+      takeName: Armature|SwordMaster_RunShoot
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|SwordMaster_Shooting
+      takeName: Armature|SwordMaster_Shooting
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|SwordMaster_ShootingPose
+      takeName: Armature|SwordMaster_ShootingPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

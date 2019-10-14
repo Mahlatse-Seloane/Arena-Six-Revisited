@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: d053621432bc79649bffea33709d3892
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ankle_r
+    100002: ankle_r.001
+    100004: ankle_r.001_end
+    100006: ankle_r_end
+    100008: Armature
+    100010: Bone.011
+    100012: Bone.012
+    100014: Bone.014
+    100016: Bone.015
+    100018: Bone.015_end
+    100020: Bone.020
+    100022: Bone.026
+    100024: Bone.029
+    100026: Bone.035
+    100028: Bone.036
+    100030: Bone.037
+    100032: Bone.037_end
+    100034: Bone.038
+    100036: Bone.039
+    100038: Bone.039_end
+    100040: elbow_l
+    100042: elbow_l_end
+    100044: elbow_r
+    100046: elbow_r_end
+    100048: fingerIk_l
+    100050: fingerIk_l_end
+    100052: fingers_r
+    100054: fingers_r_end
+    100056: fingersIK_r
+    100058: fingersIK_r_end
+    100060: foot_l
+    100062: foot_l_end
+    100064: foot_r
+    100066: foot_r_end
+    100068: head
+    100070: head_end
+    100072: hip_r
+    100074: knee_l
+    100076: knee_l_end
+    100078: knee_r
+    100080: knee_r_end
+    100082: leg_l
+    100084: leg_r
+    100086: lowerArm_l
+    100088: lowerArm_r
+    100090: neck
+    100092: pelvis
+    100094: shoulder_l
+    100096: shoulder_r
+    100098: spin1
+    100100: spin2
+    100102: spin3
+    100104: SwordMaster.000
+    100106: //RootNode
+    100108: thigh_l
+    100110: thigh_r
+    100112: torso
+    100114: upperArm_l
+    100116: upperArm_r
+    100118: wrist_l
+    100120: wrist_r
+    100122: wristIK_l
+    100124: wristIK_l_end
+    100126: wristIK_r
+    100128: wristIK_r_end
+    400000: ankle_r
+    400002: ankle_r.001
+    400004: ankle_r.001_end
+    400006: ankle_r_end
+    400008: Armature
+    400010: Bone.011
+    400012: Bone.012
+    400014: Bone.014
+    400016: Bone.015
+    400018: Bone.015_end
+    400020: Bone.020
+    400022: Bone.026
+    400024: Bone.029
+    400026: Bone.035
+    400028: Bone.036
+    400030: Bone.037
+    400032: Bone.037_end
+    400034: Bone.038
+    400036: Bone.039
+    400038: Bone.039_end
+    400040: elbow_l
+    400042: elbow_l_end
+    400044: elbow_r
+    400046: elbow_r_end
+    400048: fingerIk_l
+    400050: fingerIk_l_end
+    400052: fingers_r
+    400054: fingers_r_end
+    400056: fingersIK_r
+    400058: fingersIK_r_end
+    400060: foot_l
+    400062: foot_l_end
+    400064: foot_r
+    400066: foot_r_end
+    400068: head
+    400070: head_end
+    400072: hip_r
+    400074: knee_l
+    400076: knee_l_end
+    400078: knee_r
+    400080: knee_r_end
+    400082: leg_l
+    400084: leg_r
+    400086: lowerArm_l
+    400088: lowerArm_r
+    400090: neck
+    400092: pelvis
+    400094: shoulder_l
+    400096: shoulder_r
+    400098: spin1
+    400100: spin2
+    400102: spin3
+    400104: SwordMaster.000
+    400106: //RootNode
+    400108: thigh_l
+    400110: thigh_r
+    400112: torso
+    400114: upperArm_l
+    400116: upperArm_r
+    400118: wrist_l
+    400120: wrist_r
+    400122: wristIK_l
+    400124: wristIK_l_end
+    400126: wristIK_r
+    400128: wristIK_r_end
+    2100000: Material
+    4300000: SwordMaster.000
+    7400000: SwordMaster_Idle
+    7400002: SwordMaster_RunCycle
+    7400004: SwordMaster_MeleeAttack.001
+    7400006: Shooting Attack
+    7400008: Shooting Attack.001
+    7400010: SwordMaster_HeavyMeleeAttack.001
+    7400012: Armature|SwordMaster_DashPose
+    7400014: Armature|SwordMaster_HeavyChargePose
+    7400016: Armature|SwordMaster_HeavyMeleeAttack
+    7400018: Armature|SwordMaster_HeavyShoot
+    7400020: Armature|SwordMaster_Idle
+    7400022: Armature|SwordMaster_MeleeAttack
+    7400024: Armature|SwordMaster_RunCycle
+    7400026: Armature|SwordMaster_RunShoot
+    7400028: Armature|SwordMaster_Shooting
+    7400030: Armature|SwordMaster_ShootingPose
+    9500000: //RootNode
+    13700000: SwordMaster.000
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
