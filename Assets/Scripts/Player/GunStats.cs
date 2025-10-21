@@ -6,58 +6,106 @@ using UnityEngine.UI;
 [System.Serializable]
 public class GunStats
 {
-	public GameObject chargeParticleEffect;
-	public GameObject chargeSound;
-	public GameObject bounceBulletPrefab;
-	public GameObject chargeBulletPrefab1;
-	public GameObject chargeBulletPrefab2;
-	public GameObject chargeBulletPrefab3;
-	public GameObject chargeBulletPrefab4;
-	public GameObject normalBulletPrefab;
-	[HideInInspector]public GameObject currentBullet;
+	[HideInInspector] public GameObject currentBullet;
+    public GameObject ChargeBubble, NormalBullet , HeavyShotPrefab;
+    private float scaleSpeed = 10f;
+    public float ScaleSpeed
+    {
+        get { return scaleSpeed; }
+    }
 
+    public Text ammo;
     public Transform bulletSpawnPoint;
-   
-	public float chargeTime;
-	public float maxFiredelay;
-	[HideInInspector]public float chargeDelay;
-	[HideInInspector]public float firedelay;
-	public int numberOfBullets;
+    public Slider ChargeSlider;
 
-	public string HeavyFireButton;
-	public string FireButton;
+	private float maxFiredelay = 0.25f;
+    public float MaxFiredelay
+    {
+        get { return maxFiredelay; }
+        set { maxFiredelay = value; }
+    }
 
-	public bool HeavyShotReload = true;
-		
-    public void SwitchBullet(string bulletType)
+    public float firedelay { get; set; }
+	private int noOfBullets = 40;
+	public int NoOfBullets
 	{
-        if (bulletType == "normal")
+		get { return noOfBullets; }
+		set { noOfBullets = value; }
+	}
+
+    private bool heavyShotReloaded = true;
+	public bool HeavyShotReloaded 
+    {
+        get { return heavyShotReloaded; }
+        set { heavyShotReloaded = value;  }
+    }
+	public bool HeavyShotCharging { get; set; }
+    public float limit { get; set; }
+    private float currentScale;
+
+    public bool Fire { get; set; }
+
+
+    public void ReloadHeavyShot()
+    {
+        if (ChargeSlider.value > 0)
         {
-			currentBullet = normalBulletPrefab;
+            Fire = false;
+            ChargeSlider.value -= Time.deltaTime;
+            ScaleChargeBubble(ChargeSlider.minValue * 10f);
         }
-        else if (bulletType == "bouncy")
+        else if (!HeavyShotReloaded)
         {
-            currentBullet = bounceBulletPrefab;
+            ChargeBubble.SetActive(false);
+            HeavyShotReloaded = true;
+            limit = 0f;
         }
-        else if (bulletType == "charge1")
+    }
+
+    public void ChargingHeavyShot()
+    {
+        if (heavyShotReloaded && ChargeSlider.value < limit)
         {
-            currentBullet = chargeBulletPrefab1;
+            ChargeBubble.SetActive(true);
+            ChargeSlider.value += Time.deltaTime;
+            ScaleChargeBubble(ChargeSlider.maxValue * 10f);
+            Fire = (ChargeSlider.value >= 0.5f);
         }
-		else if (bulletType == "charge2")
-		{
-			currentBullet = chargeBulletPrefab2;
-		}
-		else if (bulletType == "charge3")
-		{
-			currentBullet = chargeBulletPrefab3;
-		}
-		else if (bulletType == "charge4")
-		{
-			currentBullet = chargeBulletPrefab4;
-		}
-        else
-        {
-            Debug.Log("This bullet does not exist");
-        }
+    }
+
+    public void ScaleChargeBubble(float targetScale)
+    {
+        currentScale = Mathf.MoveTowards(currentScale, targetScale, scaleSpeed * Time.deltaTime);
+        ChargeBubble.transform.localScale = new Vector3(currentScale, currentScale, currentScale);
+        HeavyShotPrefab.transform.localScale = new Vector3(currentScale, currentScale, currentScale);
+    }
+
+    public void checkBullets()
+    {
+        int sector = NoOfBullets / 5;
+        limit = (sector < 5) ? sector * 0.5f: ChargeSlider.maxValue;
+    }
+
+    public void DecreaseNoOfBullets()
+    {
+        int a = (int)(ChargeSlider.value / 0.5);
+        if (a > 0)
+            NoOfBullets -= (5 * a);
+
+        ammo.text = "Ammo: " + NoOfBullets;
+    }
+
+    public void reload()
+    {
+        for (int i = 1; i <= 20 && NoOfBullets < 100; i++)
+            NoOfBullets += 1;
+
+        ammo.text = "Ammo: " + NoOfBullets.ToString();
+    }
+
+    public void increaseFireTime()
+    {
+        if (firedelay < 0.5f)
+            firedelay += Time.deltaTime;
     }
 }

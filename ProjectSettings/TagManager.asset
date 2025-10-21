@@ -4,9 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bullet
-  - Cannon
+  - Sword
+  - Wall
   - Ammo
+  - Cannon4
+  - Cannon3
+  - Bullet
+  - Cannon2
+  - Cannon1
+  - ground
+  - Ring1
+  - Ring2
   layers:
   - Default
   - TransparentFX
@@ -16,7 +24,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 8db13918747059e4ba6f2bba86e17df5
+guid: 1c1cadab88b58b64ab0c07cbc3eefd53
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: ankle_r
     100002: ankle_r.001
@@ -60,15 +60,14 @@ ModelImporter:
     100108: thigh_l
     100110: thigh_r
     100112: torso
-    100114: TurnAround
-    100116: upperArm_l
-    100118: upperArm_r
-    100120: wrist_l
-    100122: wrist_r
-    100124: wristIK_l
-    100126: wristIK_l_end
-    100128: wristIK_r
-    100130: wristIK_r_end
+    100114: upperArm_l
+    100116: upperArm_r
+    100118: wrist_l
+    100120: wrist_r
+    100122: wristIK_l
+    100124: wristIK_l_end
+    100126: wristIK_r
+    100128: wristIK_r_end
     400000: ankle_r
     400002: ankle_r.001
     400004: ankle_r.001_end
@@ -126,15 +125,14 @@ ModelImporter:
     400108: thigh_l
     400110: thigh_r
     400112: torso
-    400114: TurnAround
-    400116: upperArm_l
-    400118: upperArm_r
-    400120: wrist_l
-    400122: wrist_r
-    400124: wristIK_l
-    400126: wristIK_l_end
-    400128: wristIK_r
-    400130: wristIK_r_end
+    400114: upperArm_l
+    400116: upperArm_r
+    400118: wrist_l
+    400120: wrist_r
+    400122: wristIK_l
+    400124: wristIK_l_end
+    400126: wristIK_r
+    400128: wristIK_r_end
     2100000: Material
     4300000: SwordMaster.000
     7400000: SwordMaster_Idle
@@ -207,12 +205,14 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -226,7 +226,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

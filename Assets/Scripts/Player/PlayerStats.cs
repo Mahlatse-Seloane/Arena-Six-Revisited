@@ -1,31 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class PlayerStats
 {
-	public GameObject aimAssist;
-	public GameObject enemy;
+	public GameObject lockOn, enemy;
 
-	public float Health;
-	public float movespeed;
-	public float dashLimit;
-	[HideInInspector]public float dashDelay;
-	public float lookSpeed;
-	public float maxAngle;
+    private float health = 100f;
 
-	[HideInInspector]public Quaternion targetRotation;
-	[HideInInspector]public Quaternion lookAtEmeny;
+    private float dashSpeed = 600f;
+    private float lookSpeed = 300f;
+    public float dashDelay { get; set; }
+    [Range (0f, 15f)] public float dashTimeLimit = 10f;
 
-	[HideInInspector]public Vector3 playerDirection;
+    public string HeavyMeeleAttack;
 
-	public string HoriMovementForAnalogStick1;
-	public string VertMovementForAnalogStick1;
-	public string DashButton;
-	public string stopMovementButton;
-	public string LightMeeleAttack;
-	public string HeavyMeeleAttack;
+    public Slider HealthSlider;
+    public Renderer playerRend;
+    public Material normalMat, hitMat;
 
-	/*[HideInInspector]*/public State currentState;
+    public Quaternion TargetRotation { get; set; }
+    public Quaternion lookAtEmeny { get; set; }
+    public Vector3 PlayerDirection { get; set; }
+
+    public float Health
+    {
+        get { return health; }
+        set { health = value; }
+    }
+    public float DashSpeed
+    {
+        get { return dashSpeed; }
+        set { dashSpeed = value; }
+    }
+    public float LookSpeed
+    {
+        get { return lookSpeed; }
+        set { lookSpeed = value; }
+    }
+    public bool AllowDash { get; set; }
+    public bool Hurt { get; set; }
+    public float flashTime { get; set; }
+    public float MoveSpeed { get; set; }
+
+    public bool Dash { get; set; }
 }

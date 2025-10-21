@@ -2,52 +2,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraShake : MonoBehaviour {
+public class CameraShake : MonoBehaviour
+{
+    public static CameraShake instance;
+    private Camera mainCam;
+    private Vector3 originalPos;
+    private Coroutine currentCoroutine;
 
-	public Camera mainCam;
+    void Start()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
 
-	Vector3 origPos;
+        mainCam = Camera.main;
+    }
 
-	float shakeAmount = 0.01f;
+    public void ShakeCamera(float amount, float duration)
+    {
+        if (currentCoroutine != null) 
+            StopCoroutine(currentCoroutine);
 
-	void Awake ()
-	{
-		if (mainCam == null){
-			mainCam = Camera.main;
-		}
+        currentCoroutine = StartCoroutine(DelayExecution(amount, duration));
+    }
 
-		
-	}
+    private IEnumerator DelayExecution(float amount, float duration = 0f)
+    {
+        originalPos = mainCam.transform.localPosition;
 
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.T)) {
-			Shake(0.1f , 0.2f);
-		}
-	}
+        while (duration > 0)
+        {
+            StartCameraShake(amount);
+            duration -= Time.deltaTime;
+            yield return null;
+        }
 
-	public void Shake(float amount, float length) {
-		shakeAmount = amount;
-		InvokeRepeating ("DoShake", 0, 0.01f);
-		Invoke ("StopShake", length);
-	} 
+        StopCameraShake();
+    }
 
-	void DoShake() {
-		if (shakeAmount > 0) {
-			Vector3 camPos = mainCam.transform.position;
-            origPos = mainCam.transform.localPosition;
-			float offsetX = Random.value * shakeAmount * 2 - shakeAmount;
-			float offsetZ = Random.value * shakeAmount * 2 - shakeAmount;
-			camPos.x += offsetX;
-			camPos.z += offsetZ;
+    private void StartCameraShake(float amount)
+    {
+        if (amount <= 0.0)
+            return;
 
-			mainCam.transform.position = camPos;
-		}
-	}
+        Vector3 camPos = originalPos;
+        float offsetX = Random.value * amount * 2 - amount;
+        float offsetZ = Random.value * amount * 2 - amount;
+        camPos.x += offsetX;
+        camPos.z += offsetZ;
 
-	void StopShake() {
-		CancelInvoke ("DoShake");
-		mainCam.transform.localPosition = origPos;
-	}
+        mainCam.transform.localPosition = camPos;
+    }
 
-	
+    public void StopCameraShake()
+    {
+        mainCam.transform.localPosition = originalPos;
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+            currentCoroutine = null;
+        }
+    }
 }

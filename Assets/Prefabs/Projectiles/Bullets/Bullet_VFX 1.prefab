@@ -276,7 +276,9 @@ MonoBehaviour:
   fireSpeed: 250
   muzzlePrefab: {fileID: 1782326099171472, guid: 47c8548c0a3aa8648adabf7609a62cf7,
     type: 2}
-  hitPrefab: {fileID: 1057410893415886, guid: d0a31d6b86527f64582069fe579b21ba, type: 2}
+  hitPrefab: {fileID: 1027400139314184, guid: 1102d5a0908f0e94ea04cc3ed9d57b38, type: 2}
+  radius: 0
+  explosionForce: 0
 --- !u!198 &198090910905310412
 ParticleSystem:
   m_ObjectHideFlags: 1

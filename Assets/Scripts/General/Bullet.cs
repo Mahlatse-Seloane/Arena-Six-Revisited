@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Xml.Serialization;
 
-public class Bullet: MonoBehaviour {
+public class Bullet : MonoBehaviour {
 
 	public float destroyDelay;
 	public float fireSpeed = 30f;
@@ -13,17 +14,17 @@ public class Bullet: MonoBehaviour {
 
 	private Rigidbody rb;
 
-	// Use this for initialization
 	void Start()
 	{
 		rb = gameObject.GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+        audioManager.instance.Play("Bullet");
 
-		if (muzzlePrefab != null)
+        if (muzzlePrefab != null)
 		{
-			
-			var muzzleVFX = Instantiate(muzzlePrefab, transform.position, Quaternion.identity);
+			GameObject muzzleVFX = Instantiate(muzzlePrefab, transform.position, Quaternion.identity);
 			muzzleVFX.transform.forward = gameObject.transform.forward;
-			var psMuzzle = muzzleVFX.GetComponent<ParticleSystem>();
+			ParticleSystem psMuzzle = muzzleVFX.GetComponent<ParticleSystem>();
 
 			if (psMuzzle != null)
 			{
@@ -35,42 +36,35 @@ public class Bullet: MonoBehaviour {
 				Destroy(muzzleVFX, psChild.main.duration);
 			}
 		}
-
-		if (gameObject.tag == "Bullet")
-		{
-			FindObjectOfType<audioManager> ().Play ("Bullet");
-		} 
-		else 
-		{
-			if (gameObject.tag == "Cannon") 
-			{
-				FindObjectOfType<audioManager> ().Play ("Cannon");
-			}
-		}
-
-		Destroy (gameObject, destroyDelay);
 	}
 
 	void FixedUpdate()
 	{
 		rb.velocity = transform.forward * fireSpeed;
-		rb.freezeRotation = true;
+		Destroy(gameObject, destroyDelay);
 	}
 
-	void OnCollisionEnter(Collision other)
+    private void Effects(float cameraShakeMag, float duration)
+    {
+        CameraShake.instance.ShakeCamera(cameraShakeMag, duration);
+        Instantiate(hitPrefab, transform.position, Quaternion.identity);
+    }
+
+	private void OnCollisionEnter(Collision col)
 	{
-		if (other.gameObject.tag == "Player")
+		if (tag.Contains("Cannon"))
 		{
+			Effects(10f, 0.5f);
 			Destroy(gameObject);
 		}
-
-		if (other.gameObject.tag == "Wall")
-		{
-			if (hitPrefab != null)
-			{
-				Destroy(gameObject);
-				var hitVfx = Instantiate(hitPrefab, transform.position, Quaternion.identity);
-			}
-		}
 	}
+	
+    private void OnTriggerEnter(Collider col)
+    {
+		if (tag == "Bullet")
+		{
+			Effects(0.5f, 0.5f);
+			Destroy(gameObject);
+		}
+    }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e6c0e74ae847941986e8ac62300d17, type: 3}
+  m_Name: DashState
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 431125d61ff5e7a4b998940f3135031d, type: 2}
+  - {fileID: 11400000, guid: c6ddae959293bf1488b72e49a97934ff, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: fa321644ec2020e4491f746171298484, type: 2}
+    trueState: {fileID: 11400000, guid: bddfdcc083067ff4f93392adeca3826e, type: 2}
+    falseState: {fileID: 11400000, guid: 364abf65eebe4a34b9fa3b9041856eef, type: 2}
+  - decision: {fileID: 11400000, guid: 4781d2ef40c59ba49b4c0042554ac21f, type: 2}
+    trueState: {fileID: 11400000, guid: 39fb0cda8f3638443aad91aa274c6a39, type: 2}
+    falseState: {fileID: 11400000, guid: bddfdcc083067ff4f93392adeca3826e, type: 2}

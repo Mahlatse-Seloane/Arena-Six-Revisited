@@ -1,315 +1,192 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
+    public static PlayerController instance;
+    public State CurrentState, RemainInState;
+    public Animator anim;
+    public GameObject DashTrail, PickUpEffect, LightSaber;
+    public float emoteDuration = 0f, earthShatterDuration = 0f;
+    public KeyCode LeftKey, RightKey, UpKey, DownKey, DashKey;
+    public KeyCode lockOnKey, EarthShatterKey, EmoteKey;
+    public KeyCode LightMeleeKey;
+    public KeyCode HeavyFireKey, FireKey;
+    public PlayerStats stats;
+    public GunStats gun;
+    public GameObject[] sounds;
 
-	public static PlayerController instance;
-	public PlayerStats player;
-	public Rigidbody rb;
-	public GunStats gun;
-	public UIManager ui;
-	[HideInInspector]public Animator anim;
-	public bool stationary = false;
-	public bool heavyShotCharging = false;
-	public bool GameOver;
-	public int a = 0;
-	public float delay;
-	public Text GoToMenu;
-	public Text O;
-	public GameObject particles;
-	public float countDown = 2;
-	public bool start = false;
+    public Rigidbody rb { get; set; }
+    public float HitDelay { get; set; }
+    public float EmoteDelay { get; set; }
+    public float EarthShatterDelay { get; set; }
+    public float MoveHorizontal { get; set; }
+    public float MoveVertical { get; set; }
+    public bool PlayerStationary { get; set; }
+    public bool HeavyHit { get; set; }
+    public bool LockedOn { get; set; }
+    public bool StopLightMelee { get; set; }
+    public bool StopHeavyMelee { get; set; }
+    public bool Emote { get; set; }
+    public bool Shooting { get; set; }
+    public bool EarthShatter { get; set; }
+    public bool Moving { get; set; }
+    public bool LightMelee { get; set;}
 
-    // Use this for initialization
-    void Start ()
-	{		
-		anim = GetComponentInChildren<Animator> ();
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		if (!GameOver) 
-		{
-			anim = this.transform.GetChild (0).GetComponent<Animator> ();
-			player.currentState.UpdateState (this);
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        anim = transform.GetChild(0).GetComponent<Animator>();
+        stats.dashDelay = stats.dashTimeLimit;
+        LightMelee = false;
+    }
 
+    void Update()
+    {
+        if (!GameManager.instance.IsGameOver)
+            GamePlay();
+    }
 
-			if (GameManager.instance.StartFight)
-			{
-				transitions ();
-				EndOfGame ();
-				//CheckAmmo ();
-			}
+    private void GamePlay()
+    {
+        if (CurrentState == null || InputManager.instance.paused || !GameManager.instance.StartFight)
+            return;
 
-			if (a== 2) 
-			{
-				SceneManager.LoadScene ("Menu");
-			}
-		}
-	}
+        CurrentState.UpdateState(this);
 
-	public void EndOfGame()
-	{
-		if (this.player.Health <= 0 && this.gameObject.name == "Player 2") 
-		{
-			GameOver = true;
-			gameObject.SetActive (false);
-			a = 2;
-			GameManager.instance.FightText.text = "WINNER : PLAYER 1";
-			GoToMenu.text = "Press    to go back to Menu";
-			O.text = "  O";
+        gun.increaseFireTime();
+        IncreaseDashStamina();
 
+        MoveHorizontal = PlayerHorizontalMovement();
+        MoveVertical = PlayerVerticalMovement();
+        Moving = Mathf.Abs(MoveHorizontal) > 0 || Mathf.Abs(MoveVertical) > 0f;
 
-		} 
-		else 
-		{
-			if (this.player.Health <= 0 && this.gameObject.name == "Player 1") 
-			{
-				GameOver = true;
-				gameObject.SetActive (false);
-				a = 1;
-				GameManager.instance.FightText.text = "WINNER : PLAYER 2";
-				GoToMenu.text = "Press   to go back to Menu";
-				O.text = "O";
+        if (CurrentState.name != "DashState")
+        {
+            anim.SetBool("Dash", false);
+            sounds[1].SetActive(false);
+            DashTrail.SetActive(false);
+        }
+    }
 
-				if (Input.GetButton ("Menu")) 
-				{
-					SceneManager.LoadScene ("Menu");
-				}
-			} 
-		}
-	}
+    private float PlayerHorizontalMovement()
+    {
+        if (Input.GetKey(LeftKey))
+            return -1f;
+        else if (Input.GetKey(RightKey))
+            return 1f;
 
-	public void transitions()
-	{
-		gun.firedelay += Time.deltaTime;
-		player.dashDelay += Time.deltaTime;
-		if ((Mathf.Abs(Input.GetAxis (player.VertMovementForAnalogStick1)) > 0.2 || Mathf.Abs(Input.GetAxis (player.HoriMovementForAnalogStick1)) > 0.2 
-			|| Mathf.Abs(Input.GetAxis (player.VertMovementForAnalogStick1)) < -0.2 || Mathf.Abs(Input.GetAxis (player.HoriMovementForAnalogStick1)) < -0.2) && (!stationary))
-		{
-			
-			anim.SetBool ("IsHeavyShot", false);
-			anim.SetBool ("IsShooting", false);
-			if (Input.GetButton (gun.FireButton) && !heavyShotCharging)
-			{
-				anim.SetBool ("IsRunShooting", true);
-				anim.SetBool ("IsRunning", false);
-				anim.SetBool ("IsDashing", false);
-				anim.SetBool ("IsHeavyShot", false);
-				player.currentState = FindObjectOfType<StateManager> ().whichState ("Movement/ShootingState");
-			} 
-			else 
-			{
-				anim.SetBool ("IsRunShooting", false);
-				if (Input.GetButton (player.DashButton) && player.dashDelay > player.dashLimit)
-				{
-					particles.SetActive (true);
-					player.movespeed = 300f;
-					anim.SetBool ("IsDashing", true);
-					anim.SetBool ("IsRunning", false);
-					anim.SetBool ("IsHeavyShot", false);
-					player.currentState = FindObjectOfType<StateManager> ().whichState ("DashState");
-					player.dashDelay = 0f;
-					start = true;
-				} 
-				else 
-				{
-					if(Input.GetButtonUp (player.DashButton) || start == false)
-					{
-						player.movespeed = 75f;
-					}
+        return 0f;
+    }
 
-					if (start && countDown > 0)
-					{
-						countDown -= Time.deltaTime;
-					}
-					else
-					{
-						start = false;
-						countDown = 0.5f;
-					}
+    private float PlayerVerticalMovement()
+    {
+        if (Input.GetKey(UpKey))
+            return -1f;
+        else if (Input.GetKey(DownKey))
+            return 1f;
 
-					if (!start)
-					{
-						particles.SetActive (false);
-					}
+        return 0f;
+    }
 
-					anim.SetBool ("IsRunning", true);
-					anim.SetBool ("IsDashing", false);
-					player.currentState = FindObjectOfType<StateManager> ().whichState ("MovementState");
-				}
-			}
-		} 
-		else 
-		{
-			anim.SetBool ("IsRunShooting", false);
-			anim.SetBool ("IsRunning", false);
-			anim.SetBool ("IsDashing", false);
-			if (Input.GetButton (gun.FireButton) && !heavyShotCharging)
-			{
-				anim.SetBool ("IsShooting", true);
-				player.currentState = FindObjectOfType<StateManager> ().whichState ("ShootingState");
-			}
-			else
-			{
-				anim.SetBool ("IsShooting", false);
-				player.currentState = FindObjectOfType<StateManager> ().whichState ("IdleState");
-			}
-		}
-			
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void IncreaseDashStamina()
+    {
+        if (!stats.AllowDash || !Input.GetKey(DashKey))
+        {
+            if (stats.dashDelay < stats.dashTimeLimit)
+                stats.dashDelay += Time.deltaTime;
+            else if (!stats.AllowDash)
+                stats.AllowDash = true;
+        }
+    }
 
-		if (Input.GetButton (gun.HeavyFireButton) && gun.HeavyShotReload == true)
-		{
-			heavyShotCharging = true;
-			gun.chargeSound.SetActive (true);
-			ui.ChargeSlider.value += Time.deltaTime;
-			gun.chargeDelay += Time.deltaTime;
-			anim.SetBool ("IsHeavyShot", true);
-			player.currentState = FindObjectOfType<StateManager> ().whichState ("LockOnState");
-		} 
-		else 
-		{
-			if(Input.GetButtonUp (gun.HeavyFireButton) && gun.HeavyShotReload == true)
-			{
-				gun.HeavyShotReload = false;
-				player.currentState = FindObjectOfType<StateManager> ().whichState ("ChargedShotState");
+    public void DecreaseDashStamina()
+    {
+        stats.dashDelay -= Time.deltaTime;
+        if (stats.dashDelay <= 0)
+            stats.AllowDash = false;
+    }
 
-				if(!gun.HeavyShotReload)
-				{
-					player.aimAssist.SetActive (false);
-				}
-			}
+    public void CheckAmmo(int value)
+    {
+        if (value < 40)
+            stats.MoveSpeed = 150f;
+        else if (value >= 40 && value < 50)
+            stats.MoveSpeed = 140f;
+        else if (value >= 50 && value < 60)
+            stats.MoveSpeed = 130f;
+        else if (value >= 60 && value < 70)
+            stats.MoveSpeed = 120f;
+        else if (value >= 70 && value < 80)
+            stats.MoveSpeed = 110f;
+        else if (value >= 80 && value < 90)
+            stats.MoveSpeed = 100f;
+        else if (value >= 90)
+            stats.MoveSpeed = 90f;
+    }
 
-			heavyShotCharging = false;
+    public void TransitionToState(State nextState)
+    {
+        if (nextState != RemainInState)
+            CurrentState = nextState;
+    }
 
-			gun.chargeSound.SetActive (false);
-			anim.SetBool ("IsHeavyShot", false);
-			if (ui.ChargeSlider.value >= 0)
-			{ 
-				ui.ChargeSlider.value -= Time.deltaTime;
-				if (ui.ChargeSlider.value == 0)
-				{
-					gun.HeavyShotReload = true;
-					gun.chargeDelay = 0f;
-				}
-			}
-		}
+    private void TakeDamage(float damage)
+    {
+        stats.HealthSlider.value -= damage;
+        stats.Health -= damage;
 
-		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (stats.Health <= 0)
+            PlayerManager.instance.WhoWon((gameObject.name == "Player 1") ? 1 : 2);
+    }
 
-		if (Input.GetButton (player.stopMovementButton) && gun.HeavyShotReload)
-		{
-			anim.SetBool ("IsRunShooting", false);
-			player.currentState = FindObjectOfType<StateManager> ().whichState ("StoppingState");
-			stationary  = true;
-		}
-		else
-		{
-			if (Input.GetButtonUp (player.stopMovementButton) && gun.HeavyShotReload)
-			{
-				player.aimAssist.SetActive (false);
-			}
-			stationary  = false;
-		}
+    private void OnCollisionEnter(Collision col)
+    {
+        if ((col.gameObject.tag == "Ring1" && name == "Player 1") || (col.gameObject.tag == "Ring2" && name == "Player 2"))
+        {
+            stats.flashTime = 0.6f;
+            stats.Hurt = true;
+            TakeDamage(15f);
+        }
+        else if (col.gameObject.tag.Contains("Cannon"))
+        {
+            float damage = 0f; 
+            for (int i = 1; i < 4; i++)
+            {
+                if (col.gameObject.tag.Contains("Cannon" + i.ToString()))
+                {
+                    damage = 15f + (5 * (i - 1));
+                    break;
+                }
+            }
 
-		if (Input.GetButtonDown (player.HeavyMeeleAttack))
-		{
-			anim.SetBool ("IsHeavyMelee", true);
-			//player.currentState = FindObjectOfType<StateManager> ().whichState ("ShootingState");
-		}
-		else
-		{
-			if (Input.GetButtonUp (player.HeavyMeeleAttack))
-			{
-				anim.SetBool ("IsHeavyMelee", false);
-				//player.currentState = FindObjectOfType<StateManager> ().whichState ("ShootingState");
-			}
-		}
+            stats.flashTime = 1f;
+            stats.Hurt = true;
+            TakeDamage(damage);
+            Destroy(col.gameObject);
+        }
+    }
 
-		if (Input.GetButtonDown (player.LightMeeleAttack))
-		{
-			anim.SetBool ("IsHeavyAttack", true);
-			//player.currentState = FindObjectOfType<StateManager> ().whichState ("ShootingState");
-		}
-		else
-		{
-			if (Input.GetButtonUp (player.LightMeeleAttack))
-			{
-				anim.SetBool ("IsHeavyAttack", false);
-				//player.currentState = FindObjectOfType<StateManager> ().whichState ("ShootingState");
-			}
-		}
-	}
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Ammo")
+        {
+            Destroy(col.gameObject);
+            Vector3 spawnPos = transform.position + new Vector3(0f, 7f, 0f);
+            Instantiate(PickUpEffect, spawnPos, transform.rotation);
+            audioManager.instance.Play("PickUp");
+            gun.reload();
+        }
+        else if (col.tag == "Sword" || col.tag == "Bullet")
+        {
+            float damage = (col.tag == "Sword") ? 3f : 2f;
+            stats.flashTime = (col.tag == "Sword") ? 0.6f : 0.3f;
+            stats.Hurt = true;
+            TakeDamage(damage);
 
-	void CheckAmmo()
-	{
-		switch(gun.numberOfBullets / 10)
-		{
-		case 0:
-			player.movespeed = 65f;
-			break;
-		case 1:
-			player.movespeed = 60f;
-			break;
-		case 2:
-			player.movespeed = 55f;
-			break;
-		case 3:
-			player.movespeed = 50f;
-			break;
-		case 4:
-			player.movespeed = 45f;
-			break;
-		case 5:
-			player.movespeed = 40f;
-			break;
-		case 6:
-			player.movespeed = 35f;
-			break;
-		}
-	}
-
-	void OnCollisionEnter(Collision col)
-	{
-		if (col.gameObject.tag == "Bullet")
-		{
-			player.Health = player.Health - 2;
-			ui.decreasingHealth (2f);
-		}
-		else if (col.gameObject.tag == "Cannon1")
-		{
-			player.Health = player.Health - 5;
-			ui.decreasingHealthCannon (5f);
-		}
-		else if (col.gameObject.tag == "Cannon2")
-		{
-			player.Health = player.Health - 10;
-			ui.decreasingHealthCannon (10f);
-		}
-		else if (col.gameObject.tag == "Cannon3")
-		{
-			player.Health = player.Health - 15;
-			ui.decreasingHealthCannon (15f);
-		}
-		else if (col.gameObject.tag == "Cannon4")
-		{
-			player.Health = player.Health - 20;
-			ui.decreasingHealthCannon (20f);
-		}
-	}
-
-	void OnTriggerEnter(Collider col)
-	{
-		if (col.gameObject.tag == "Ammo") 
-		{
-			gun.numberOfBullets += 20;
-			Destroy (col.gameObject);
-		}
-	}
+            if (col != null && col.gameObject != null && col.tag != "Sword")
+                Destroy(col.gameObject);
+        }
+    }
 }
