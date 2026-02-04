@@ -20,6 +20,28 @@ This project prioritizes **architecture and learning** over adding polish or new
 
 ---
 
+## 🎥 Gameplay Demo  
+
+### 🕹️ Arena-Six | Full Match Showcase  
+
+This video features a complete match between two *Arena-Six* players — Samurai-like warriors fighting to the death within a confined arena.  
+It captures the intensity, pacing, and responsiveness of the combat system, built around the refactored **Finite State Machine (FSM)** architecture discussed in this case study.  
+You’ll see transitions between movement, attack, and defense states working seamlessly to create a fluid gameplay experience.
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=V4tiizbDhFU">
+    <img src="https://img.youtube.com/vi/V4tiizbDhFU/hqdefault.jpg" alt="Arena-Six Gameplay Showcase">
+  </a>
+</p>
+
+<p align="center"><b>▶️ Click the image above to watch the full match on YouTube.</b></p>
+
+🎬 **Length:** 3 minutes 30 seconds  
+🎮 **Engine:** Unity  
+⚔️ **Focus:** Player-vs-player combat, FSM-driven gameplay flow, and state-based interactions  
+
+---
+
 ## **Context**
 
 ### 📘 About Arena-Six
